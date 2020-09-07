@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script type = "text/javascript">
+
+    const johnInfo = {
+        fullname: 'John Young',
+        height: 1.8,
+        mass: 72,
+        bmi: null,
+    }
+
+    const victorInfo = {
+        fullname: 'Victor Rivera',
+        height: 1.7,
+        mass: 70,
+        bmi: null,
+    }
+
+    function computeBMI(height,mass){
+        var bmi = parseFloat(mass) / Math.pow(height,2); 
+    return parseFloat(bmi);
+    }
+
+    johnInfo['bmi'] = computeBMI(johnInfo.height,johnInfo.mass);
+    victorInfo.bmi = computeBMI(victorInfo.height,victorInfo.mass);
+
+    console.log(johnInfo);
+    console.log(victorInfo);
+
+    if(johnInfo.bmi > victorInfo.bmi)
+        console.log(johnInfo.bmi);
+    else
+        console.log(victorInfo.bmi);
+    
+
+</script>
+
+</html>

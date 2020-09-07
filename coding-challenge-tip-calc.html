@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John's tip Calculator</title>
+</head>
+<body> 
+</body>
+
+<script type = "text/javascript">
+
+function tipCalcu(bill,tip,i){
+    var totalTip = parseFloat(bill[i]) * parseFloat(tip);
+return totalTip;
+}
+
+function calculateBills(bill,tip,eachTip,billTip){
+    done=1;
+    i=0;
+    do{
+        switch(true){
+
+        case (bill[i]<=500) : tip = 0.2;
+                        eachTip[i] = tipCalcu(bill,tip,i);
+                        billTip[i] = eachTip[i] + bill[i];
+                        
+                        break;
+
+        case (bill[i]>=500 && bill[i]<=2000) : tip = 0.15;
+                        eachTip[i] = tipCalcu(bill,tip,i);
+                        billTip[i] = eachTip[i] + bill[i];
+            
+                        break;
+
+        case (bill[i]>=2000) : tip = 0.1;
+                        eachTip[i] = tipCalcu(bill,tip,i);
+                        billTip[i] = eachTip[i] + bill[i];
+                        
+                        break;
+        default: console.log("test");
+        }
+
+        console.log(i,bill[i],tip,eachTip[i],billTip[i]);
+
+        i++;
+        if(i>4)
+            done=0;
+    }while(done);
+}
+
+
+var eachTip = [];
+var billTip = [];
+var tip = null;
+
+const arrayOfBills = {
+    bill :  [1240, 480, 2680, 1800, 420],
+};
+
+calculateBills(arrayOfBills.bill, tip, eachTip, billTip);
+
+
+for(i=0;i<=4;i++){
+    document.write("<br>Bill: ",arrayOfBills.bill[i]);
+    document.write("<br>Tip: ",eachTip[i]);
+    document.write("<br>Total Bill: ",billTip[i]);
+    document.write("<br>");
+}
+
+</script>
+
+
+
+</html>
